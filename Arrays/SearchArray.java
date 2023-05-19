@@ -13,7 +13,9 @@ public class SearchArray {
         while (start <= end) {
             mid = (start + end) / 2;
             if (arr[mid] == x) {
+
                 return mid;
+                
             } else if (arr[mid] > x) {
                 end = mid - 1;
             } else if (arr[mid] < x) {
