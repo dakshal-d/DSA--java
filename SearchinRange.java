@@ -1,6 +1,6 @@
 public class SearchinRange {
     public static void main(String[] args) {
-        int[] arr={18,45,-8,25,7};
+        int[] arr={18,52,45,-8,25,7};
         int target=25;
         System.out.println(LinearS(arr, target, 1,4));
 
