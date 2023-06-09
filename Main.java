@@ -18,13 +18,6 @@ public class Main{
 
         } 
         System.out.println("salary is "+salary);
-
-
-         
-
-
-
-
         
     }
 }
