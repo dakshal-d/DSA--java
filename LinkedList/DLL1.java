@@ -2,6 +2,30 @@ package LinkedList;
 
 import java.util.Scanner;
 
+public class DLL1{
+    public static void main(String[] args) {
+        DLL d= new DLL();
+        Scanner sc= new Scanner(System.in);
+        
+        while(true){
+            int n=sc.nextInt();
+            if(n==1){
+                int a=sc.nextInt();
+                d.insertfirst(a);
+            }
+            else if(n==2){
+                int a=sc.nextInt();
+                d.insertlast(a);
+            }
+            else if(n==3){
+                d.traverse();
+            }
+
+        }
+    }
+}
+
+
 class Node {
     int data;
     Node next;
@@ -54,7 +78,7 @@ class DLL {
     public void traverse(){
         Node node= head;
         while(node!=null){
-            System.out.println(node.data);
+            System.out.print(node.data + " ");
             node=node.next;
         }
 
@@ -62,26 +86,4 @@ class DLL {
 
 
 
-}
-public class DLL1{
-    public static void main(String[] args) {
-        DLL d= new DLL();
-        Scanner sc= new Scanner(System.in);
-        
-        while(true){
-            int n=sc.nextInt();
-            if(n==1){
-                int a=sc.nextInt();
-                d.insertfirst(a);
-            }
-            else if(n==2){
-                int a=sc.nextInt();
-                d.insertlast(a);
-            }
-            else if(n==3){
-                d.traverse();
-            }
-
-        }
-    }
 }

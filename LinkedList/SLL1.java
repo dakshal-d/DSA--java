@@ -1,6 +1,37 @@
 package LinkedList;
 
 import java.util.Scanner;
+public class SLL1{
+    public static void main(String[] args) {
+        SLL s = new SLL();
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            int x = sc.nextInt();
+            if (x == 1) {
+                int v = sc.nextInt();
+                s.insert(v);
+            } else if (x == 2) {
+                int v = sc.nextInt();
+                s.delete(v);
+            } else if (x == 3) {
+                int i = sc.nextInt();
+                int v = sc.nextInt();
+                s.update(i, v);
+            } else if (x == 4) {
+                int v = sc.nextInt();
+                s.search(v);
+            } else if (x == 5) {
+                s.display();
+            } else if (x == 6) {
+                break;
+            } else {
+                System.out.println("Invid choice");
+            }
+        }
+        sc.close();
+    }
+}
+
 
 class Node {
     int v;
@@ -108,33 +139,3 @@ class SLL {
     }
 }
 
-public class SLL1{
-    public static void main(String[] args) {
-        SLL s = new SLL();
-        Scanner sc = new Scanner(System.in);
-        while (true) {
-            int x = sc.nextInt();
-            if (x == 1) {
-                int v = sc.nextInt();
-                s.insert(v);
-            } else if (x == 2) {
-                int v = sc.nextInt();
-                s.delete(v);
-            } else if (x == 3) {
-                int i = sc.nextInt();
-                int v = sc.nextInt();
-                s.update(i, v);
-            } else if (x == 4) {
-                int v = sc.nextInt();
-                s.search(v);
-            } else if (x == 5) {
-                s.display();
-            } else if (x == 6) {
-                break;
-            } else {
-                System.out.println("Invid choice");
-            }
-        }
-        sc.close();
-    }
-}
