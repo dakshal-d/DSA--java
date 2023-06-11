@@ -1,32 +1,33 @@
+package LinkedList;
+
 import java.util.Scanner;
 
 class Node {
-    int val;
+    int v;
     Node next;
 
     Node(int v) {
-        val = v;
-        next = null;
+        this.v = v;
+        this.next = null;
     }
 }
 
 class SLL {
     Node head;
-    Node rear;
+    Node tail;
 
     SLL() {
         head = null;
-        rear = null;
     }
 
     void insert(int v) {
-        Node nn = new Node(v);
+        Node node = new Node(v);
         if (head == null) {
-            head = nn;
-            rear = head;
+            head = node;
+            tail = head;
         } else {
-            rear.next = nn;
-            rear = nn;
+            tail.next = node;
+            tail = node;
         }
     }
 
@@ -36,13 +37,13 @@ class SLL {
             System.out.println("The list is empty");
             return;
         }
-        if (cn.val == v) {
+        if (cn.v == v) {
             head = head.next;
             return;
         }
         Node pn = cn;
         while (cn != null) {
-            if (cn.val == v) {
+            if (cn.v == v) {
                 pn.next = cn.next;
                 return;
             }
@@ -59,10 +60,10 @@ class SLL {
             return;
         }
         while (cn.next != null) {
-            System.out.print(cn.val + " ");
+            System.out.print(cn.v + " ");
             cn = cn.next;
         }
-        System.out.println(cn.val);
+        System.out.println(cn.v);
     }
 
     void search(int v) {
@@ -73,7 +74,7 @@ class SLL {
             return;
         }
         while (cn != null) {
-            if (cn.val == v) {
+            if (cn.v == v) {
                 System.out.println("Element found at index " + index);
                 return;
             }
@@ -97,7 +98,7 @@ class SLL {
 
         while (cn != null) {
             if (i == index) {
-                cn.val = v;
+                cn.v = v;
                 return;
             }
             cn = cn.next;
@@ -110,30 +111,30 @@ class SLL {
 public class SLL1{
     public static void main(String[] args) {
         SLL s = new SLL();
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         while (true) {
-            int x = scanner.nextInt();
+            int x = sc.nextInt();
             if (x == 1) {
-                int v = scanner.nextInt();
+                int v = sc.nextInt();
                 s.insert(v);
             } else if (x == 2) {
-                int v = scanner.nextInt();
+                int v = sc.nextInt();
                 s.delete(v);
             } else if (x == 3) {
-                int i = scanner.nextInt();
-                int v = scanner.nextInt();
+                int i = sc.nextInt();
+                int v = sc.nextInt();
                 s.update(i, v);
             } else if (x == 4) {
-                int v = scanner.nextInt();
+                int v = sc.nextInt();
                 s.search(v);
             } else if (x == 5) {
                 s.display();
             } else if (x == 6) {
                 break;
             } else {
-                System.out.println("Invalid choice");
+                System.out.println("Invid choice");
             }
         }
-        scanner.close();
+        sc.close();
     }
 }

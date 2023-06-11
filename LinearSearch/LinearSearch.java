@@ -1,5 +1,6 @@
-import java.util.Scanner;
+package LinearSearch;
 
+import java.util.Scanner;
 public class LinearSearch {
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
@@ -21,13 +22,13 @@ public class LinearSearch {
         System.out.println(ans);
         
     }
-    static int LinearS(int[] arr,int target){
-        if (arr.length==0){
+    static int LinearS(int[] nums,int target){
+        if (nums.length==0){
             return -1;
         }
     
-    for (int i=0;i<arr.length;i++){
-        int element=arr[i];
+    for (int i=0;i<nums.length;i++){
+        int element=nums[i];
         if(element==target){
             return i;
         }
