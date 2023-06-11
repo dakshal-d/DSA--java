@@ -1,30 +1,31 @@
 package LinkedList;
-
 import java.util.Scanner;
 
-public class DLL1{
+public class DLL1 {
     public static void main(String[] args) {
-        DLL d= new DLL();
-        Scanner sc= new Scanner(System.in);
-        
-        while(true){
-            int n=sc.nextInt();
-            if(n==1){
-                int a=sc.nextInt();
+        DLL d = new DLL();
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            int x = sc.nextInt();
+            if (x == 1) {
+                int a = sc.nextInt();
                 d.insertfirst(a);
-            }
-            else if(n==2){
-                int a=sc.nextInt();
+            } else if (x == 2) {
+                int a = sc.nextInt();
                 d.insertlast(a);
-            }
-            else if(n==3){
+            } else if (x == 3) {
                 d.traverse();
+            }
+            else if (x == 4) {
+                int a = sc.nextInt();
+                int n = sc.nextInt();
+                d.insertAtPosition(a, n);
             }
 
         }
     }
 }
-
 
 class Node {
     int data;
@@ -41,7 +42,8 @@ class Node {
 class DLL {
     Node head;
     Node tail;
-    DLL(){
+
+    DLL() {
         head = null;
     }
 
@@ -75,15 +77,43 @@ class DLL {
         node.prev = last;
     }
 
-    public void traverse(){
-        Node node= head;
-        while(node!=null){
+    public void traverse() {
+        Node node = head;
+        while (node != null) {
             System.out.print(node.data + " ");
-            node=node.next;
+            node = node.next;
         }
 
     }
 
+    public void insertAtPosition(int data, int position) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        if (position == 1) {
+            insertfirst(data);
+            return;
+        }
+        Node current = head;
+        int count = 1;
+        while (count < position - 1 && current.next != null) {
+            current = current.next;
+            count++;
+        }
+
+        if (current.next == null) {
+            current.next = newNode;
+            newNode.prev = current;
+        } else {
+            newNode.next = current.next;
+            newNode.prev = current;
+            current.next.prev = newNode;
+            current.next = newNode;
+        }
 
 
-}
+
+}}
+
