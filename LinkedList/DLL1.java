@@ -60,14 +60,7 @@ class DLL {
         }
         Node newNode = new Node(data);
         if (position == 1) {
-            if (head == null) {
-                head = newNode;
-                tail = newNode;
-            } else {
-                newNode.next = head;
-                head.prev = newNode;
-                head = newNode;
-            }
+            insertFront(data);
         } else {
             Node curr = head;
             int count = 1;
