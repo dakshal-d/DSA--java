@@ -1,18 +1,15 @@
 public class floor {
     public static void main(String[] args) {
         int[] arr = {2, 3, 5, 9, 14, 16, 18};
-        int target= 1;
+        int target= 2;
         int ans= binaryFloor(arr, target);
         System.out.println("The Floor of the target element is: "+ ans);
         
     }
-    //return index of the smallest number greater than the target
+    //return index of the largest number smaller than the target
     static int binaryFloor(int arr[], int target){
         int start=0;
         int end=arr.length-1;
-        if(target> arr[arr.length-(arr.length-1)]){
-            return -1;
-        }
         while(start<=end){
 
             // int mid= (start+end)/2;
@@ -24,7 +21,7 @@ public class floor {
             else if (target>arr[mid]){
                 start=mid+1;
             }
-            else if(target== arr[mid]){
+            else{
                 return mid;
             }
         }

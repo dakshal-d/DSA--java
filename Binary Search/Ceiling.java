@@ -1,11 +1,11 @@
 public class Ceiling {
     public static void main(String[] args) {
         int[] arr = {2, 3, 5, 9, 14, 16, 18};
-        int target= 19;
+        int target= 6;
         int ans= binaryCeiling(arr, target);
         System.out.println("the Ceiling of the target element is: "+ ans);        
     }
-    //return index of the greatest number less than the target
+    //return index of the smallest number greater than the target
     static int binaryCeiling(int arr[], int target){
 
         int start=0;
@@ -24,7 +24,7 @@ public class Ceiling {
             else if (target>arr[mid]){
                 start=mid+1;
             }
-            else if(target== arr[mid]){
+            else{
                 return mid;
             }
         }
