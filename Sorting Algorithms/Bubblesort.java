@@ -21,3 +21,5 @@ public class Bubblesort {
     }
     
 }
+
+// Space complexity= O(1)   (as no new space is created)
