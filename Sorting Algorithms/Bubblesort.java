@@ -23,3 +23,5 @@ public class Bubblesort {
 }
 
 // Space complexity= O(1)   (as no new space is created)
+// Time Complexity =O(n^2)--Worst Case  as we are iterating through the array
+// Time Complexity =O(n)--Best Case 
