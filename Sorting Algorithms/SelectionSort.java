@@ -33,3 +33,5 @@ public class SelectionSort {
     }
     
 }
+//Time complexity = O(n^2)  Both best and worst
+// case time complexities are same because we have to check all the elements in array atleast once
