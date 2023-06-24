@@ -1,12 +1,19 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class Bubblesort {
     public static void main(String[] args) {
-        int[] arr={1,2,3,4,5};
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int k=0;k<n;k++){
+            arr[k]=sc.nextInt();
+        }
         bubblest(arr);
-        System.out.print(Arrays.toString(arr));
-        
+        for(int z=0;z<arr.length;z++){
+            System.out.print(arr[z]+" ");
+        }
     }
+
     static void bubblest(int[] arr){
         boolean swap;
         for(int i=0; i<arr.length;i++){
