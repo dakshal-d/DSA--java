@@ -1,9 +1,12 @@
+import java.util.Arrays;
+
 public class BinarySearch {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int target= 10;
         int ans= binaryS(arr, target);
-        System.out.println("the position of the target element is: "+ans);
+        System.out.println(ans);
+        // System.out.println(Arrays.binarySearch(arr,target));
         
     }
     //return index
