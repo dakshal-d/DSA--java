@@ -28,8 +28,7 @@ public class ques {
         for (int i = 0; i < n; i++) {
             int number = Numbers[i];
             number++;
-            while(containsNumber(array, number)){
-            
+            while(containsNumber(array, number)){          
             number++;
             }
 
