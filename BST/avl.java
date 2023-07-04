@@ -14,7 +14,7 @@ class Node {
     }
 }
 
-public class Main {
+public class avl {
     public static int max(int a, int b) {
         return (a > b) ? a : b;
     }

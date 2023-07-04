@@ -2,84 +2,95 @@
 
 import java.util.Scanner;
 
-class HamiltonianCycle {
-private int V;
-private int[][] graph;
-private int[] path;
+class Main {
+	final static int INF = 999 ;
+	static int V ;
 
-boolean isSafe(int v, int[][] graph, int[] path, int pos) {
-    if (graph[path[pos - 1]][v] == 0)
-        return false;
+	static void floydWarshall(int graph[][])
+	{
+		int dist[][] = new int[V][V];
+		int i, j, k;
 
-    for (int i = 0; i < pos; i++)
-        if (path[i] == v)
-            return false;
+		for (i = 0; i < V; i++)
+			for (j = 0; j < V; j++)
+				dist[i][j] = graph[i][j];
 
-    return true;
-}
+		for (k = 0; k < V; k++) {
+			// Pick all vertices as source one by one
+			for (i = 0; i < V; i++) {
+				
+				for (j = 0; j < V; j++) {
+			
+					if (dist[i][k] + dist[k][j]
+						< dist[i][j])
+						dist[i][j]
+							= dist[i][k] + dist[k][j];
+				}
+			}
+		}
 
-boolean hamCycleUtil(int[][] graph, int[] path, int pos) {
-    if (pos == V) {
-        if (graph[path[pos - 1]][path[0]] == 1)
-            return true;
-        else
-            return false;
-    }
+		// Print the shortest distance matrix
+		printSolution(dist);
+	}
 
-    for (int v = 1; v < V; v++) {
-        if (isSafe(v, graph, path, pos)) {
-            path[pos] = v;
+	static void printSolution(int dist[][])
+	{
+		for (int i = 0; i < V; ++i) {
+			for (int j = 0; j < V; ++j) {
+				if (dist[i][j] == INF)
+					System.out.print("INF ") ;
+				else
+					System.out.print(dist[i][j] + " ") ;
+			}
+			System.out.println();
+		}
+	}
 
-            if (hamCycleUtil(graph, path, pos + 1))
-                return true;
-
-            path[pos] = -1;
-        }
-    }
-
-    return false;
-}
-
-int hamCycle(int graph[][]) {
-    V = graph.length;
-    path = new int[V];
-    for (int i = 0; i < V; i++)
-        path[i] = -1;
-
-    path[0] = 0;
-    if (hamCycleUtil(graph, path, 1)) {
-        printSolution(path);
-        return 1;
-    } else {
-        System.out.println("Solution does not exist");
-        return 0;
-    }
-}
-
-void printSolution(int path[]) {
-    System.out.println("Solution Exists: Following is one Hamiltonian Cycle");
-    for (int i = 0; i < V; i++)
-        System.out.print(" " + path[i] + " ");
-
-    System.out.println(" " + path[0] + " ");
-}
-
-public static void main(String args[]) {
-    Scanner scanner = new Scanner(System.in);
-   // System.out.print("Enter the number of vertices: ");
-    int V = scanner.nextInt();
-    int graph[][] = new int[V][V];
-
-    //System.out.println("Enter the adjacency matrix:");
-    for (int i = 0; i < V; i++) {
-        for (int j = 0; j < V; j++) {
-            graph[i][j] = scanner.nextInt();
-        }
-    }
-
-    HamiltonianCycle hamiltonian = new HamiltonianCycle();
-    hamiltonian.hamCycle(graph);
-
-    scanner.close();
-}
+	// Driver's code
+	public static void main(String[] args)
+	{
+	    
+	    Scanner sc = new Scanner(System.in) ;
+	    
+	    V = sc.nextInt() ;
+	    
+	    int edges = sc.nextInt() ;
+	    
+	    int graph[][] = new int [V][V] ;
+	    
+	    for(int i = 0 ; i < V ; i++){
+	        for(int j = 0 ; j < V ; j++){
+	            if(i==j)
+	                graph[i][j] = 0 ;
+	            else
+	                graph[i][j] = INF ;
+	        }
+	    }
+	    
+	    int start, end, value ;
+	    
+	    for(int i = 0 ; i < edges ; i++){
+	        start = sc.nextInt() ;
+	        end = sc.nextInt() ;
+	        value = sc.nextInt() ;
+	        
+	        graph[start][end] = value ;
+	        graph[end][start] = value ;
+	    }
+	    System.out.println("Original matrix") ;
+	    for(int i = 0 ; i < V ; i++){
+	        for(int j = 0 ; j < V ; j++){
+	            if(graph[i][j] == INF)
+	                System.out.print("INF ") ;
+	            else
+	                System.out.print(graph[i][j]+" ") ;
+	        }
+	        System.out.println() ;
+	    }
+	    System.out.println() ;
+	    
+	    System.out.println("Shortest path matrix") ;
+	    
+	    floydWarshall(graph);
+	}
 }
