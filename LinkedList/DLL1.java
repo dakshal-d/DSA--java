@@ -1,6 +1,4 @@
-package LinkedList;
 
-// You are using Java
 import java.util.Scanner;
 
 class Node {

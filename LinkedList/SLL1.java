@@ -1,4 +1,3 @@
-package LinkedList;
 
 import java.util.Scanner;
 public class SLL1{
