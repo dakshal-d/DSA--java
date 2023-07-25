@@ -1,7 +1,0 @@
-Searching
-
-Sorting
-
-Alternate +ve and -ve number segregation without changing the relative order
-
-Left rotation of array
