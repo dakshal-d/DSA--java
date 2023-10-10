@@ -15,21 +15,21 @@ public class Bubblesort {
     }
 
     static void bubblest(int[] arr){
-        boolean swap;
+        // boolean swap;
         for(int i=0; i<arr.length;i++){
-            swap=false;
+            // swap=false;
             for(int j=1;j<arr.length-i;j++){
                 if (arr[j-1]>arr[j]){
                     int temp=arr[j];
                     arr[j]=arr[j-1];
                     arr[j-1]=temp;
-                    swap=true;
+                    // swap=true;
                 }
 
             }
-            if(!swap){
-                break;
-            }
+            // if(!swap){
+            //     break;
+            // }
         }
     
     }
