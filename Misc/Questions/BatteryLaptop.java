@@ -1,4 +1,4 @@
-package Questions;
+
 
 import java.util.*;
 public class BatteryLaptop
