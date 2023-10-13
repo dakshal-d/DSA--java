@@ -12,7 +12,7 @@ class check2 extends check1{
 
 public class Inheritance extends check2{
     public static void main(String[] args) {
-        Inheritance test =new Inheritance();
+        check2 test =new check2();
 
         test.hmm1();
         test.hmm2();
